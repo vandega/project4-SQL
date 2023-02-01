@@ -11,11 +11,16 @@ CREATE TABLE Student(
 	Email VARCHAR(70) UNIQUE NOT NULL,
 	Address VARCHAR NOT NULL,
 	Birth_day DATE NOT NULL,
-	Sex VARCHAR NOT NULL,
-	Address_2 VARCHAR,
-	Home_num VARCHAR
+	Sex VARCHAR NOT NULL
 );
---INSERT INTO Student (Student_id, Name, Lastname, Student_id_num, Email, Address, Birth_day, Sex, Address_2, Home_num)
+--INSERT INTO Student (Student_id, Name, Lastname, Student_id_num, Email, Address, Birth_day, Sex)
+
+CREATE TABLE Student_info(
+	Student_id INT NOT NULL,
+	Address_2 VARCHAR(50),
+	Home_num VARCHAR(30),
+	FOREIGN KEY(Student_id) REFERENCES Student(Student_id)
+);
 
 CREATE TABLE Lecture(
 	Lecture_id INT PRIMARY KEY NOT NULL,
@@ -27,11 +32,16 @@ CREATE TABLE Lecture(
 	Birth_day DATE NOT NULL,
 	Sex VARCHAR NOT NULL,
 	Bank_account VARCHAR(24) UNIQUE NOT NULL,
-	Position VARCHAR(100) NOT NULL,
-	Address_2 VARCHAR,
-	Home_num VARCHAR
+	Position VARCHAR(100) NOT NULL
 );
---INSERT INTO Lecture (Lecture_id, Name, Lastname, Lecture_id_num, Email, Address, Birth_day, Sex, Bank_account, Position, Address, Home_num)
+--INSERT INTO Lecture (Lecture_id, Name, Lastname, Lecture_id_num, Email, Address, Birth_day, Sex, Bank_account, Position)
+
+CREATE TABLE Lecture_info(
+	Lecture_id INT NOT NULL,
+	Address_2 VARCHAR(50),
+	Home_num VARCHAR(30),
+	FOREIGN KEY(Lecture_id) REFERENCES Lecture(Lecture_id)
+);
 
 CREATE TABLE Staff(
 	Staff_id INT PRIMARY KEY NOT NULL,
@@ -43,11 +53,16 @@ CREATE TABLE Staff(
 	Birth_day DATE NOT NULL,
 	Sex VARCHAR NOT NULL,
 	Bank_account VARCHAR(24) UNIQUE NOT NULL,
-	Position VARCHAR(100) NOT NULL,
-	Address_2 VARCHAR,
-	Home_num VARCHAR
+	Position VARCHAR(100) NOT NULL
 );
---INSERT INTO Staff (Staff_id, Name, Lastname, Staff_id_num, Email, Address, Birth_day, Sex, Bank_account, Position, Address, Home_num)
+--INSERT INTO Staff (Staff_id, Name, Lastname, Staff_id_num, Email, Address, Birth_day, Sex, Bank_account, Position)
+
+CREATE TABLE Staff_of(
+	Staff_id INT NOT NULL,
+	Faculty_id INT NOT NULL,
+	FOREIGN KEY(Staff_id) REFERENCES Staff(Staff_id),
+	FOREIGN KEY(Faculty_id) REFERENCES Faculty(Faculty_id)
+);
 
 CREATE TABLE Subject(
 	Subject_id INT PRIMARY KEY NOT NULL,
@@ -93,21 +108,3 @@ CREATE TABLE Timetable(
 	FOREIGN KEY (Student_id) REFERENCES Student(Student_id)
 );
 --INSERT INTO Timetable(Timetable_id, Faculty_id, Subject_id, Lecture_id, Student_id)
-
-SELECT Timetable.Timetable_id, Faculty.Faculty_name, Subject_timing.subject_time, Subject.Subject_name, Lecture.lecture_name, Student.student_name
-FROM Timetable
-
-JOIN Faculty
-ON Timetable.Faculty_id = Faculty.Faculty_id
-
-JOIN Subject
-ON Timetable.Subject_id = Subject.Subject_id
-
-JOIN Subject_timing
-ON Timetable.Time_id = Subject_timing.Time_id
-
-JOIN Lecture
-ON Timetable.Lecture_id = Lecture.Lecture_id
-
-JOIN Student
-ON Timetable.Student_id = Student.Student_id

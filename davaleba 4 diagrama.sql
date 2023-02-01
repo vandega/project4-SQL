@@ -9,9 +9,14 @@ TABLE Students{
   Address varchar [NOT NULL]
   Bday data [NOT NULL]
   Sex varhcar [NOT NULL]
+}
+
+TABLE Student_info{
+  Student_ID int
   Address2 varchar
   HomeNumber varchar
 }
+ref: Students.Student_ID > Student_info.Student_ID
 
 TABLE Lecturer{
   Lecture_ID int [pk, NOT NULL]
@@ -24,9 +29,14 @@ TABLE Lecturer{
   Sex varhcar [NOT NULL]
   BankAccNum varchar [NOT NULL]
   Position varhcar [NOT NULL]
-  Address2 varhcar
-  HomeNumber varhcar 
 }
+
+TABLE Lecturer_info{
+  Lecture_ID int
+  Address2 varchar
+  HomeNumber varchar
+}
+ref: Lecturer.Lecture_ID > Lecturer_info.Lecture_ID
 
 TABLE Managment{
   Managment_ID int [pk, NOT NULL]
@@ -39,9 +49,8 @@ TABLE Managment{
   Sex varhcar [NOT NULL]
   Position varchar [NOT NULL]
   BankAccNum varchar [NOT NULL]
-  Address2 varchar
-  HomeNumber varchar
 }
+
 
 TABLE Subject{
   Subject_ID int [pk, NOT NULL]
@@ -69,11 +78,13 @@ TABLE Timetable{
   Subject_ID INT // from Subject
   Lecture_ID INT // from Lecturer
   Student_ID INT // from Student
+  Subject_time INT
 }
 // ^^^^^^^^^^^^^^^^^^^^^
 ref: Subject.Subject_ID > Timetable.Subject_ID
 ref: Lecturer.Lecture_ID > Timetable.Lecture_ID
 ref: Students.Student_ID > Timetable.Student_ID
+ref: Subject_time.Time > Timetable.Subject_time
 
 TABLE Managment_of{
   Mng_id INT [pk, NOT NULL]
@@ -95,11 +106,4 @@ ref: Subject_time.Subject_Name > Subject.Subject_Name
 
 
 
-
-
-
-
-
-
-
-
+https://dbdiagram.io/d/63d91617296d97641d7d5f44

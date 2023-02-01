@@ -11,12 +11,12 @@ VALUES	(1, 'joni', 'sturua', 01001089305, 'jako.sturua@gmail.com', 'Tbilisi, gld
 		(10, 'Jessica', 'Thomas', 0100136587, 'jessicathomas@example.com', '246 Oak Blvd', '1990-10-25', 'Female');
 
 
-INSERT INTO Lecture (Lecture_id, Lecture_name, Lastname, Lecture_id_num, Email, Address, Birth_day, Sex, Bank_account, Position, Address_2, Home_num)
-VALUES	(1, 'John', 'Doe', 12345678901, 'johndoe@example.com', '123 Main St', '1980-01-01', 'Male', '1234567890123456', 'Professor', 'Apt 1', '555-555-1212'),
-	  	(2, 'Jane', 'Doe', 23456789012, 'janedoe@example.com', '456 Oak Ave', '1981-02-14', 'Female', '234567890123456', 'math Professor', 'Apt 2', '555-555-1213'),
-	  	(3, 'Jim', 'Smith', 34567890123, 'jimsmith@example.com', '789 Pine Rd', '1982-03-21', 'Male', '34567890123456', 'english Professor', 'Apt 3', '555-555-1214'),
-   	   	(4, 'Sarah', 'Johnson', 45678901234, 'sarahjohnson@example.com', '246 Maple St', '1983-04-01', 'Female', '4567890123456', 'IT Professor', 'Apt 4', '555-555-1215'),
-	   	(5, 'Michael', 'Brown', 56789012345, 'michaelbrown@example.com', '135 Cedar Blvd', '1984-05-16', 'Male', '567890123456', 'history Professor', 'Apt 5', '555-555-1216');
+INSERT INTO Lecture (Lecture_id, Lecture_name, Lastname, Lecture_id_num, Email, Address, Birth_day, Sex, Bank_account, Position)
+VALUES	(1, 'John', 'Doe', 12345678901, 'johndoe@example.com', '123 Main St', '1980-01-01', 'Male', '1234567890123456', 'Professor'),
+	  	(2, 'Jane', 'Doe', 23456789012, 'janedoe@example.com', '456 Oak Ave', '1981-02-14', 'Female', '234567890123456', 'math Professor'),
+	  	(3, 'Jim', 'Smith', 34567890123, 'jimsmith@example.com', '789 Pine Rd', '1982-03-21', 'Male', '34567890123456', 'english Professor'),
+   	   	(4, 'Sarah', 'Johnson', 45678901234, 'sarahjohnson@example.com', '246 Maple St', '1983-04-01', 'Female', '4567890123456', 'IT Professor'),
+	   	(5, 'Michael', 'Brown', 56789012345, 'michaelbrown@example.com', '135 Cedar Blvd', '1984-05-16', 'Male', '567890123456', 'history Professor');
 
 
 INSERT INTO Subject (Subject_id, Subject_name)
@@ -59,7 +59,7 @@ VALUES(1, 1, 1, 1, 3, 5);
 
 
 
-SELECT Timetable.Timetable_id, Faculty.Faculty_name, Subject_timing.Time_id, Subject.Subject_name, Lecture.lecture_name, Student.student_name
+SELECT Timetable.Timetable_id, Faculty.Faculty_name, Subject_timing.subject_time, Subject.Subject_name, Lecture.lecture_name, Student.student_name
 FROM Timetable
 
 JOIN Faculty
