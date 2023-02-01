@@ -13,7 +13,6 @@ CREATE TABLE Student(
 	Birth_day DATE NOT NULL,
 	Sex VARCHAR NOT NULL
 );
---INSERT INTO Student (Student_id, Name, Lastname, Student_id_num, Email, Address, Birth_day, Sex)
 
 CREATE TABLE Student_info(
 	Student_id INT NOT NULL,
@@ -34,7 +33,6 @@ CREATE TABLE Lecture(
 	Bank_account VARCHAR(24) UNIQUE NOT NULL,
 	Position VARCHAR(100) NOT NULL
 );
---INSERT INTO Lecture (Lecture_id, Name, Lastname, Lecture_id_num, Email, Address, Birth_day, Sex, Bank_account, Position)
 
 CREATE TABLE Lecture_info(
 	Lecture_id INT NOT NULL,
@@ -55,7 +53,6 @@ CREATE TABLE Staff(
 	Bank_account VARCHAR(24) UNIQUE NOT NULL,
 	Position VARCHAR(100) NOT NULL
 );
---INSERT INTO Staff (Staff_id, Name, Lastname, Staff_id_num, Email, Address, Birth_day, Sex, Bank_account, Position)
 
 CREATE TABLE Staff_of(
 	Staff_id INT NOT NULL,
@@ -68,22 +65,20 @@ CREATE TABLE Subject(
 	Subject_id INT PRIMARY KEY NOT NULL,
 	Subject_name VARCHAR(50) NOT NULL
 );
---INSERT INTO Subject(Subject_id, Subject_name)
 
+-- aq unda davamatot lectoris saxeli vinc chaatarebs sagans.
 CREATE TABLE Subject_timing(
 	Time_id INT PRIMARY KEY NOT NULL,
 	Subject_name INT NOT NULL,
 	Subject_time TIME NOT NULL,
 	FOREIGN KEY (Subject_name) REFERENCES Subject(Subject_id)
 );
---INSERT INTO Subject_timing(Time_id, Subject_name, Subject_time)
 
 CREATE TABLE Faculty(
 	Faculty_id INT PRIMARY KEY NOT NULL,
 	Faculty_name VARCHAR(50) NOT NULL
 );
 
---INSERT INTO Faculty(Faculty_id, Faculty_name)
 
 CREATE TABLE On_faculty(
 	On_faculty_id INT PRIMARY KEY NOT NULL,
@@ -92,7 +87,6 @@ CREATE TABLE On_faculty(
 	FOREIGN KEY(Faculty_id) REFERENCES Faculty(Faculty_id),
 	FOREIGN KEY(Subject_id) REFERENCES Subject(Subject_id)
 );
---INSERT INTO On_faculty(On_faculty_id, Faculty_id, Subject_id)
 
 CREATE TABLE Timetable(
 	Timetable_id INT PRIMARY KEY NOT NULL,
@@ -107,4 +101,3 @@ CREATE TABLE Timetable(
 	FOREIGN KEY (Lecture_id) REFERENCES Lecture(Lecture_id),
 	FOREIGN KEY (Student_id) REFERENCES Student(Student_id)
 );
---INSERT INTO Timetable(Timetable_id, Faculty_id, Subject_id, Lecture_id, Student_id)
