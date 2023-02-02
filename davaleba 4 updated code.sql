@@ -15,6 +15,7 @@ CREATE TABLE Student(
 );
 
 CREATE TABLE Student_info(
+	S_info_id INT NOT NULL, --AUTO_INCREMENT
 	Student_id INT NOT NULL,
 	Address_2 VARCHAR(50),
 	Home_num VARCHAR(30),
@@ -30,11 +31,12 @@ CREATE TABLE Lecture(
 	Address VARCHAR NOT NULL,
 	Birth_day DATE NOT NULL,
 	Sex VARCHAR NOT NULL,
-	Bank_account VARCHAR(24) UNIQUE NOT NULL,
+	Bank_account VARCHAR(24) NOT NULL,
 	Position VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Lecture_info(
+	L_info_id INT NOT NULL, --AUTO_INCREMENT
 	Lecture_id INT NOT NULL,
 	Address_2 VARCHAR(50),
 	Home_num VARCHAR(30),
@@ -55,6 +57,7 @@ CREATE TABLE Staff(
 );
 
 CREATE TABLE Staff_of(
+	Nnumeration INT NOT NULL, --AUTO_INCREMENT
 	Staff_id INT NOT NULL,
 	Faculty_id INT NOT NULL,
 	FOREIGN KEY(Staff_id) REFERENCES Staff(Staff_id),
