@@ -32,6 +32,10 @@ VALUES	(1, 'Joni', 'Sturua', 01001089305, 'jako.sturua@gmail.com', 'Tbilisi, Gld
 	(31, 'Alexandre','Bejuashvili',22001008151, 'alexander15@gmail.com','Batumi, Kontsantine Gamsaxurdia Street 20','2002-03-03','Male'),
 	(32, 'Aleko','Elisashvili',55001005840, 'alekoelis@gmail.com','Tbilisi, Vera , Gogebashvili Street 20','2004-03-05','Male');
 
+INSERT INTO Student_info(S_info_id, Student_id, Address_2, Home_num)
+VALUES (1, 1, 'leselidze st 24', '14');
+-- need like 10-15.
+
 
 INSERT INTO Lecture (Lecture_id, Lecture_name, Lastname, Lecture_id_num, Email, Address, Birth_day, Sex, Bank_account, Position)
 VALUES	(1, 'Venera', 'Chutkerashvili', 01005021534, 'venerachutkerashvili@uni.ge', 'Tbilisi , Vake , Ramishvili Street 3', '1980-01-01', 'Female', 'GE29TB0000000101904917', 'Full Professor'),
@@ -42,6 +46,10 @@ VALUES	(1, 'Venera', 'Chutkerashvili', 01005021534, 'venerachutkerashvili@uni.ge
 	(6, 'Konstantine','Zandukeli', 62004028147, 'konstantinezandukeli@uni.ge','Tbilisi , Vake , Radiani Street 2','1970-12-01','Male','GE29TB0000000102224917','Assistant Professor'),
 	(7, 'Vasil','Oyroshidze', 61004048743, 'vasiloyroshidze@uni.ge','Tbilisi , Saburtalo , Dolidze Street 21','1980-10-20','Male','GE29BG0000000101907657','Associate Professor'),
 	(8, 'Maia','Gabunia', 01011091273, 'maiagabunia@uni.ge','Tbilisi , Naxalovla , Marjanishvili Street 15','1991-05-02','Female','GE29TB0000000101004917','Associate Professor');
+
+INSERT INTO lecture_info(L_info_id, Lecture_id, Address_2, Home_num)
+VALUES (1, 1, 'didgoris 22', '14b');
+-- need 3-4 more.
 
 INSERT INTO Subject (Subject_id, Subject_name)
 VALUES (1, 'Mathematics'),
@@ -115,23 +123,3 @@ VALUES	(1, 1, 1),
 
 INSERT INTO Timetable(Timetable_id, time_id, Faculty_id, Subject_id, Lecture_id, Student_id)
 VALUES(1, 1, 1, 1, 3, 5);
-
-
-
-SELECT Timetable.Timetable_id, Faculty.Faculty_name, Subject_timing.subject_time, Subject.Subject_name, Lecture.lecture_name, Student.student_name
-FROM Timetable
-
-JOIN Faculty
-ON Timetable.Faculty_id = Faculty.Faculty_id
-
-JOIN Subject
-ON Timetable.Subject_id = Subject.Subject_id
-
-JOIN Subject_timing
-ON Timetable.Time_id = Subject_timing.Time_id
-
-JOIN Lecture
-ON Timetable.Lecture_id = Lecture.Lecture_id
-
-JOIN Student
-ON Timetable.Student_id = Student.Student_id
