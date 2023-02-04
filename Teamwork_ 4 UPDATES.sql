@@ -10,6 +10,7 @@ WHERE Student_id = 1;
 UPDATE student SET 
 Student_name = 'Gocha',
 Lastname = 'Chertkoevi',
+Student_id_num = 02665275368,
 WHERE Student_id = 15; 
 
 UPDATE student SET 
